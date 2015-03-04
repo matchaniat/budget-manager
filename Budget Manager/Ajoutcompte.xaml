@@ -1,0 +1,22 @@
+﻿<Window x:Class="Budget_Manager.Ajoutcompte"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ajouter un compte" Height="300" Width="300" ResizeMode="NoResize" Icon="linecons_e020(0)_512.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="199*"/>
+            <ColumnDefinition Width="95*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Nom du compte" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="N° du compte" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <Label Content="Banque" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+        <Label Content="Solde initial" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nomcmt" Margin="0,13,10,0" TextWrapping="Wrap" Text="" HorizontalAlignment="Right" Width="120" Height="23" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="numcmt" HorizontalAlignment="Right" Height="23" Margin="0,44,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="bank" HorizontalAlignment="Right" Height="23" Margin="0,75,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="soldecmt" HorizontalAlignment="Right" Height="23" Margin="0,106,10,0" TextWrapping="Wrap" Text="," VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <Button Content="Annuler" HorizontalAlignment="Left" Margin="32,225,0,0" VerticalAlignment="Top" Width="75" Click="AjoutAnnul" RenderTransformOrigin="0.864,0.575"/>
+        <Button Content="Valider" HorizontalAlignment="Left" Margin="0,225,0,0" VerticalAlignment="Top" Width="75" Click="AjoutValid" Grid.Column="1"/>
+
+    </Grid>
+</Window>

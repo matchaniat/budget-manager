@@ -1,0 +1,56 @@
+﻿<Window x:Class="Budget_Manager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Budget Manager" Height="400" Width="600" Activated="activated" Icon="linecons_e020(0)_512.ico">
+    <Grid>
+        <Menu IsMainMenu="True" Height="18" Margin="0,0,0,0" VerticalAlignment="Top">
+            <MenuItem Header="_Fichier">
+                <MenuItem Header="Quitter" Click="Quit"/>
+            </MenuItem>
+            <MenuItem Header="Comptes">
+                <MenuItem Header="Ajouter Compte" IsCheckable="False" Click="AjoutCompte"/>
+                <MenuItem Header="Supprimer Compte" IsCheckable="False" Click="SuppCompte" />
+            </MenuItem>
+            <MenuItem Header="Catégories" Click="gerecat">
+                <MenuItem Header="Gérer Catégories"/>
+            </MenuItem>
+            <MenuItem Header="Aide">
+                <MenuItem Header="A propos" HorizontalAlignment="Left" Width="140" Click="Apropos"/>
+            </MenuItem>
+        </Menu>
+        <ListView x:Name="ListeComptes" ItemsSource="{Binding Listecomptes}" Margin="238,66,10,10" Foreground="Black" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="Auto" Header="Compte" DisplayMemberBinding="{Binding Compte}"/>
+                    <GridViewColumn Width="Auto" Header="Numero" DisplayMemberBinding="{Binding Numero}"/>
+                    <GridViewColumn Width="Auto" Header="Banque" DisplayMemberBinding="{Binding Banque}"/>
+                    <GridViewColumn Width="Auto" Header="Solde" DisplayMemberBinding="{Binding Solde}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="Operation" ItemsSource="{Binding Listecomptes}" Margin="238,66,10,65" Foreground="Black" Visibility="Collapsed">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="Auto" Header="Libellé" DisplayMemberBinding="{Binding Label}"/>
+                    <GridViewColumn Width="Auto" Header="Date" DisplayMemberBinding="{Binding Date}"/>
+                    <GridViewColumn Width="Auto" Header="Categorie" DisplayMemberBinding="{Binding Categorie}"/>
+                    <GridViewColumn Width="Auto" Header="Montant" DisplayMemberBinding="{Binding Montant}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="titre" Content="Comptes" Margin="238,23,187,294" FontSize="22"/>
+        <ListBox x:Name="Comptes" HorizontalAlignment="Left" Margin="10,66,0,10" Width="223" SelectionChanged="menu" FontSize="20"/>
+        <Button x:Name="btnaccueil" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="35" Height="35" Click="accueil" Opacity="0.5" IsEnabled="False">
+            <Image Height="31" Width="31" Source="Images/Accueil.png"/>
+        </Button>
+        <Button x:Name="btnplus" HorizontalAlignment="Left" Margin="50,26,0,0" VerticalAlignment="Top" Width="35" Height="35" Opacity="0.5" IsEnabled="False" Click="ajoutope">
+            <Image Height="31" Width="31" Source="Images/+.png"/>
+        </Button>
+        <Button x:Name="btnmoins" HorizontalAlignment="Left" Margin="90,26,0,0" VerticalAlignment="Top" Width="35" Height="35" Opacity="0.5" IsEnabled="False" Click="supprope">
+            <Image Height="31" Width="31" Source="Images/-.png"/>
+        </Button>
+        <Label x:Name="solde" Content="Solde" HorizontalAlignment="Right" Margin="0,0,119,32" VerticalAlignment="Bottom" Width="89" BorderThickness="1" BorderBrush="Black" Visibility="Collapsed"/>
+        <Label x:Name="mont" Content="" HorizontalAlignment="Right" Margin="0,0,39,32" VerticalAlignment="Bottom" Width="81" BorderThickness="1" BorderBrush="Black" Visibility="Collapsed"/>
+
+    </Grid>
+</Window>
