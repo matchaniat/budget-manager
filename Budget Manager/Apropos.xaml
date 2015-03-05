@@ -4,8 +4,8 @@
         Title="Apropos" Height="300" Width="300" ResizeMode="CanMinimize" Icon="linecons_e020(0)_512.ico">
     <Grid>
         <Label Content="Budget Manager v1.0" Margin="10,10,10,0" VerticalAlignment="Top" Height="52" FontSize="22"/>
-        <Label Content="© Copyright MCDev 2014" Margin="10,67,10,157"/>
-        <Label Content="http://budget-manager.com/" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" Width="176" Height="36" MouseDown="Site" Foreground="#FF0821BB"/>
+        <Label Content="© Copyright 2015 Mathieu CHANIAT" Margin="10,67,10,157"/>
+        <Label Content="https://github.com/matchaniat/budget-manager" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" Width="274" Height="36" MouseDown="Site" Foreground="#FF0821BB"/>
 
     </Grid>
 </Window>

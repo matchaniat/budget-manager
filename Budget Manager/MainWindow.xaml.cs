@@ -29,9 +29,7 @@ namespace Budget_Manager
         }
         public void CreationBase()
         {
-            if(System.IO.File.Exists(@"BudgetManager.sqlite"))
-            {}
-            else
+            if(!(System.IO.File.Exists(@"BudgetManager.sqlite")))
             {
                 SQLiteConnection.CreateFile("BudgetManager.sqlite");
                 SQLiteConnection m_dbConnection;

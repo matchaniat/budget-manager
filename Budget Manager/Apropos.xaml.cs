@@ -26,7 +26,7 @@ namespace Budget_Manager
 
         private void Site(object sender, MouseButtonEventArgs e)
         {
-            try { System.Diagnostics.Process.Start("http://budget-manager.com/"); }
+            try { System.Diagnostics.Process.Start("https://github.com/matchaniat/budget-manager"); }
             catch { };
         }
     }
