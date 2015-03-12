@@ -68,28 +68,41 @@ namespace Budget_Manager
 
         private void valider(object sender, RoutedEventArgs e)
         {
-            string cmptsel = compte.Text;
-            string lib = libelle.Text;
-            DateTime da = DateTime.Parse(date.Text);
-            string categorie = cat.Text;
-            string ty = type.Text;
-            decimal mont = decimal.Parse(montant.Text);
-            if (ty=="Débit")
+            if (compte.Text == "" || libelle.Text == "" || date.Text == "" || cat.Text == "" || type.Text == "" || montant.Text == "")
             {
-                mont=-mont;
+                MessageBox.Show("Veuillez remplir tous les champs !");
             }
-            SQLiteConnection m_dbConnection;
-            m_dbConnection = new SQLiteConnection("Data Source=BudgetManager.sqlite;Version=3;");
-            m_dbConnection.Open();
-            string sql = "insert into '"+cmptsel+"' (label,date,categorie,montant) values (@label,@date,@cat,@montant)";
-            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-            command.Parameters.AddWithValue("@label", lib);
-            command.Parameters.AddWithValue("@date", da);
-            command.Parameters.AddWithValue("@cat", categorie);
-            command.Parameters.AddWithValue("@montant", mont);
-            command.ExecuteNonQuery();
-            calculsolde();
-            Close();
+            else
+            {
+                try
+                {
+                    string cmptsel = compte.Text;
+                    string lib = libelle.Text;
+                    DateTime da = DateTime.Parse(date.Text);
+                    string categorie = cat.Text;
+                    string ty = type.Text;
+                    decimal mont = decimal.Parse(montant.Text);
+                    if (ty == "Débit")
+                    {
+                        mont = -mont;
+                    }
+                    SQLiteConnection m_dbConnection;
+                    m_dbConnection = new SQLiteConnection("Data Source=BudgetManager.sqlite;Version=3;");
+                    m_dbConnection.Open();
+                    string sql = "insert into '" + cmptsel + "' (label,date,categorie,montant) values (@label,@date,@cat,@montant)";
+                    SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                    command.Parameters.AddWithValue("@label", lib);
+                    command.Parameters.AddWithValue("@date", da);
+                    command.Parameters.AddWithValue("@cat", categorie);
+                    command.Parameters.AddWithValue("@montant", mont);
+                    command.ExecuteNonQuery();
+                    calculsolde();
+                }
+                catch { 
+                    MessageBox.Show("Erreur !"); 
+                }
+                Close();
+            }
         }
         private void calculsolde()
         {

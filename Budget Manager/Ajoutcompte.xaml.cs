@@ -37,6 +37,14 @@ namespace Budget_Manager
         }
         private void inserertable()
         {
+            char[] soldestring = soldecmt.Text.ToCharArray();
+            for (int i = 0; i < soldecmt.Text.Length; i++)
+            {
+                if (soldestring[i] == '.')
+                {
+                    MessageBox.Show("Veuillez remplacer le point par une virgule !");
+                }
+            }
             try
             {
                 SQLiteConnection m_dbConnection;
