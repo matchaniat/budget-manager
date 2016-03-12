@@ -58,7 +58,7 @@ namespace Budget_Manager
 
         private void valider(object sender, RoutedEventArgs e)
         {
-            if (compte.Text == "" || libelle.Text == "" || date.Text == "" || cat.Text == "" || type.Text == "" || montant.Text == "")
+            if (compte.Text.Equals("") || libelle.Text.Equals("") || date.Text.Equals("") || cat.Text.Equals("") || type.Text.Equals("") || montant.Text.Equals(""))
             {
                 MessageBox.Show("Veuillez remplir tous les champs !");
             }
@@ -71,7 +71,7 @@ namespace Budget_Manager
                     DateTime da = DateTime.Parse(date.Text);
                     string categorie = cat.Text;
                     string ty = type.Text;
-                    decimal mont = decimal.Parse(montant.Text);
+                    decimal mont = decimal.Parse(montant.Text.Replace('.', ','));
                     if (ty == "Débit")
                     {
                         mont = -mont;
@@ -97,7 +97,7 @@ namespace Budget_Manager
         private void calculsolde()
         {
             string cmptsel = compte.Text;
-            decimal mont = decimal.Parse(montant.Text);
+            decimal mont = decimal.Parse(montant.Text.Replace('.', ','));
             string ty = type.Text;
             if (ty == "Débit")
             {

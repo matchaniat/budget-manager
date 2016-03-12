@@ -14,7 +14,7 @@
         <TextBox x:Name="nomcmt" Margin="0,13,10,0" TextWrapping="Wrap" Text="" HorizontalAlignment="Right" Width="120" Height="23" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <TextBox x:Name="numcmt" HorizontalAlignment="Right" Height="23" Margin="0,44,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <TextBox x:Name="bank" HorizontalAlignment="Right" Height="23" Margin="0,75,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="soldecmt" HorizontalAlignment="Right" Height="23" Margin="0,106,10,0" TextWrapping="Wrap" Text="," VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="soldecmt" HorizontalAlignment="Right" Height="23" Margin="0,106,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <Button Content="Annuler" HorizontalAlignment="Left" Margin="32,225,0,0" VerticalAlignment="Top" Width="75" Click="AjoutAnnul" RenderTransformOrigin="0.864,0.575"/>
         <Button Content="Valider" HorizontalAlignment="Left" Margin="0,225,0,0" VerticalAlignment="Top" Width="75" Click="AjoutValid" Grid.Column="1"/>
 

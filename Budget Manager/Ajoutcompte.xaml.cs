@@ -15,8 +15,14 @@ namespace Budget_Manager
 
         private void AjoutValid(object sender, RoutedEventArgs e)
         {
-            inserertable();
-            creertable();
+            if (nomcmt.Text.Equals("") || numcmt.Text.Equals("") || bank.Text.Equals("") || soldecmt.Text.Equals(""))
+            {
+                MessageBox.Show("Veuillez remplir tous les champs !");
+            }
+            else {
+                inserertable();
+                creertable();
+            }
         }
 
         private void AjoutAnnul(object sender, RoutedEventArgs e)
@@ -25,14 +31,6 @@ namespace Budget_Manager
         }
         private void inserertable()
         {
-            char[] soldestring = soldecmt.Text.ToCharArray();
-            for (int i = 0; i < soldecmt.Text.Length; i++)
-            {
-                if (soldestring[i] == '.')
-                {
-                    MessageBox.Show("Veuillez remplacer le point par une virgule !");
-                }
-            }
             try
             {
                 SQLiteConnection m_dbConnection;
@@ -41,7 +39,7 @@ namespace Budget_Manager
                 string nom = nomcmt.Text;
                 string numero = numcmt.Text;
                 string banque = bank.Text;
-                decimal solde = decimal.Parse(soldecmt.Text);
+                decimal solde = decimal.Parse(soldecmt.Text.Replace('.', ','));
                 string sql = "insert into comptes (name,numero,banque,solde) values (@nomcmt,@numero,@banque,@solde)";
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.Parameters.AddWithValue("@nomcmt", nom);
